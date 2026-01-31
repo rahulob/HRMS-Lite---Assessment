@@ -11,6 +11,7 @@ client = AsyncIOMotorClient(MONGO_URL)
 database = client[DATABASE_NAME]
 
 employee_collection = database.get_collection("employee")
+attendance_collection = database.get_collection("attendance")
 
 async def create_indexes():
     await employee_collection.create_index("email", unique=True)

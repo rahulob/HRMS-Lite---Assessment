@@ -1,6 +1,6 @@
 from bson import ObjectId
 import pydantic
-from src.models import EmployeeCreate
+from src.models.EmployeeModel import EmployeeCreate
 from src.database import employee_collection
 from fastapi import APIRouter, HTTPException
 from pymongo.errors import DuplicateKeyError

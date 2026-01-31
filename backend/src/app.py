@@ -1,5 +1,6 @@
 from fastapi import FastAPI
-from src.routes import router
+from src.routes.EmployeeRouter import router
+from src.routes.AttendanceRouter import attendance_router
 from src.database import create_indexes
 from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
@@ -23,4 +24,7 @@ def health_check():
 async def startup_event():
     await create_indexes()
 
+# employee router
 app.include_router(router)
+#attendance router
+app.include_router(attendance_router)
