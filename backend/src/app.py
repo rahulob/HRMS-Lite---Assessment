@@ -3,12 +3,16 @@ from src.routes.EmployeeRouter import router
 from src.routes.AttendanceRouter import attendance_router
 from src.database import create_indexes
 from fastapi.middleware.cors import CORSMiddleware
+import os
+from dotenv import load_dotenv
 app = FastAPI()
+
+load_dotenv()
 
 # Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "https://hrms-lite-assessment-mdnnefofg-rahulobs-projects.vercel.app/"],  # React dev server
+    allow_origins=["http://localhost:5173", os.getenv("FRONTEND_URL")],  # React dev server
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
