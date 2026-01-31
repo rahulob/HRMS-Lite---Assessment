@@ -12,7 +12,8 @@ load_dotenv()
 # Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", os.getenv("FRONTEND_URL")],  # React dev server
+    allow_origins=[os.getenv("FRONTEND_URL")],  # React dev server
+    allow_origin_regex=r"https://.*\.vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
