@@ -47,7 +47,6 @@ dependencies = [
     { name = "fastapi", extra = ["all"] },
     { name = "motor" },
     { name = "pydantic", extra = ["email"] },
-    { name = "pymongo" },
     { name = "python-dotenv" },
 ]
 
@@ -57,7 +56,6 @@ requires-dist = [
     { name = "fastapi", extras = ["all"], specifier = ">=0.128.0" },
     { name = "motor", specifier = ">=3.7.1" },
     { name = "pydantic", extras = ["email"], specifier = ">=2.12.5" },
-    { name = "pymongo", extras = ["srv"], specifier = ">=4.16.0" },
     { name = "python-dotenv", specifier = ">=1.2.1" },
 ]
 

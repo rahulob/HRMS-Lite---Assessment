@@ -9,6 +9,5 @@ dependencies = [
     "fastapi[all]>=0.128.0",
     "motor>=3.7.1",
     "pydantic[email]>=2.12.5",
-    "pymongo[srv]>=4.16.0",
     "python-dotenv>=1.2.1",
 ]
