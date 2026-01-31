@@ -30,6 +30,24 @@ async def get_employee(employee_id: str):
         raise HTTPException(status_code=404, detail="Employee not found")
     return {"employee": serialize_employee(employee)}
 
+@router.delete("/delete-by-id/{employee_id}")
+async def delete_employee(employee_id: str):
+    # Convert string ID to ObjectId
+    obj_id = ObjectId(employee_id)
+
+    # Find the employee first
+    employee = await employee_collection.find_one({"_id": obj_id})
+    if not employee:
+        raise HTTPException(status_code=404, detail="Employee not found")
+
+    # Delete the employee
+    result = await employee_collection.delete_one({"_id": obj_id})
+
+    if result.deleted_count == 1:
+        return {"employee": serialize_employee(employee)}
+    else:
+        raise HTTPException(status_code=500, detail="Failed to delete employee")
+
 @router.post("/create")
 async def create_employee(employee: EmployeeCreate):
     try:

@@ -9,7 +9,7 @@ import {
     SidebarMenuItem,
     SidebarMenuButton,
 } from "./ui/sidebar"
-import { Users, UserCheck, Calendar, Building2 } from "lucide-react"
+import { Users, UserCheck, Calendar, Building2, UserPlus } from "lucide-react"
 
 export function AppSidebar() {
     return (
@@ -28,17 +28,37 @@ export function AppSidebar() {
             </SidebarHeader>
 
             <SidebarContent>
+                {/* Employee Management Group */}
                 <SidebarGroup>
+                    <div className="px-4 py-2 text-xs font-semibold text-muted-foreground uppercase">
+                        Employee
+                    </div>
                     <SidebarMenu className="space-y-2">
                         <SidebarMenuItem>
                             <SidebarMenuButton asChild>
                                 <Link to="/" className="flex items-center gap-3">
-                                    <Users className="w-4 h-4" />
+                                    <UserPlus className="w-4 h-4" />
                                     <span>Create Employee</span>
                                 </Link>
                             </SidebarMenuButton>
                         </SidebarMenuItem>
+                        <SidebarMenuItem>
+                            <SidebarMenuButton asChild>
+                                <Link to="/view-employees" className="flex items-center gap-3">
+                                    <Users className="w-4 h-4" />
+                                    <span>All Employees</span>
+                                </Link>
+                            </SidebarMenuButton>
+                        </SidebarMenuItem>
+                    </SidebarMenu>
+                </SidebarGroup>
 
+                {/* Attendance Group */}
+                <SidebarGroup>
+                    <div className="px-4 py-2 text-xs font-semibold text-muted-foreground uppercase">
+                        Attendance
+                    </div>
+                    <SidebarMenu className="space-y-2">
                         <SidebarMenuItem>
                             <SidebarMenuButton asChild>
                                 <Link to="/mark-attendance" className="flex items-center gap-3">
@@ -47,10 +67,9 @@ export function AppSidebar() {
                                 </Link>
                             </SidebarMenuButton>
                         </SidebarMenuItem>
-
                         <SidebarMenuItem>
                             <SidebarMenuButton asChild>
-                                <Link to="/attendance/view" className="flex items-center gap-3">
+                                <Link to="/view-attendance" className="flex items-center gap-3">
                                     <Calendar className="w-4 h-4" />
                                     <span>View Attendance</span>
                                 </Link>
