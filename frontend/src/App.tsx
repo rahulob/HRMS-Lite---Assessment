@@ -6,6 +6,8 @@ import { AppSidebar } from "./components/AppSidebar";
 
 import { SidebarProvider } from "./components/ui/sidebar";
 import ViewEmployees from "./pages/ViewEmployees";
+import ViewAttendance from "./pages/ViewAttendance";
+import HomePage from "./pages/HomePage";
 
 export default function App() {
   return (
@@ -13,10 +15,11 @@ export default function App() {
       <SidebarProvider>
         <AppSidebar />
         <Routes>
-          <Route path="/" element={<CreateEmployee />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/create-employee" element={<CreateEmployee />} />
           <Route path="/view-employees" element={<ViewEmployees />} />
           <Route path="/mark-attendance" element={<MarkAttendance />} />
-          <Route path="/view-attendance" element={<MarkAttendance />} />
+          <Route path="/view-attendance" element={<ViewAttendance />} />
         </Routes>
         <Toaster position="top-right" />
       </SidebarProvider>
